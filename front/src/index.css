@@ -1,0 +1,35 @@
+#root {
+  background-color: #0047ff;
+  padding: 1.5 2rem;
+}
+#mainViewContainer {
+  height: 100vh;
+}
+.nextView {
+  padding-top: 1rem;
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  color: white;
+
+  justify-content: space-between;
+}
+
+.imgs {
+  position: absolute;
+  top: var(--t);
+  right: var(--r);
+}
+
+.carbon-copy {
+  height: 378px;
+  width: 80%;
+  border: 1px solid white;
+  margin: 0 auto;
+  background: linear-gradient(#0047ff 10%, #dadadaaf);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
