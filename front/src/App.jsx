@@ -5,6 +5,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router";
 import MainView from "./components/MainView";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,6 +13,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainView />} />
+      <Route path="/login" element={<LoginForm />} />
     </Routes>
   );
 }

@@ -3,7 +3,7 @@
   padding: 1.5 2rem;
 }
 #mainViewContainer {
-  height: 100vh;
+  height: 100%;
 }
 .nextView {
   padding-top: 1rem;
@@ -32,4 +32,78 @@
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-around;
+}
+
+.forms {
+  height: 94vh;
+  width: 100%;
+  border: 1px solid white;
+  border-radius: 1.5rem;
+  margin: 0 auto;
+  background: linear-gradient(#0047ff 10%, #dadadaaf);
+  color: white;
+  padding: 1rem;
+}
+
+.inputs-form {
+  margin: 1.5rem auto;
+  background: transparent;
+  border-radius: 17rem;
+  border: 1.5px solid white;
+  padding-left: 3rem;
+  width: 100%;
+}
+
+.writer-on-form {
+  background-color: #0047ff;
+  margin: 0.2rem auto;
+  border-radius: 0 1rem 1rem 1rem;
+  height: 22%;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.value-on-form {
+  color: #ef88bd;
+}
+
+.sing-up-button {
+  width: 100%;
+  border-radius: 10rem;
+  width: 134px;
+  height: 40px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+;
+}
+.father-sing-up-button {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.father-sun {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sun-button {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 0.3rem;
+  color: white;
+}
+
+.form-type {
+  border: 1px solid white;
+  border-bottom: none;
+  width: 50%;
+  height: 38px;
+  border-top-right-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
