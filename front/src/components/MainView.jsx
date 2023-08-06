@@ -41,7 +41,7 @@ const MainView = () => {
               color: "white",
             }}
             onClick={() => {
-              navigate("/login");
+              navigate("/register");
             }}
           >
             <AiOutlineLine

@@ -26,19 +26,22 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { password, email } = req.body;
 
-  const user = await User.find({ email: email });
+  const user = await User.findOne({ email: email });
   console.log(user);
   const payload = {
-    name: user[0].name,
-    lastname: user[0].lastname,
-    id: user[0].id,
-    email: user[0].email,
+    name: user.name,
+    lastname: user.lastname,
+    id: user.id,
+    email: user.email,
   };
   const validator = await validatePassword(user, password);
   if (!validator) return res.sendStatus(401);
   const token = generateToken(payload);
   res.send({ token, payload });
 });
+router.post("/me", validateToken, (req, res) => {
+  res.send(req.user)
+})
 
 router.get("/allUsers", async (req, res) => {
   const allUser = JSON.stringify(await User.find({}));

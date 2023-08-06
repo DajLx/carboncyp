@@ -35,16 +35,17 @@
 }
 
 .forms {
-  height: 94vh;
-  width: 100%;
-  border: 1px solid white;
+
   border-radius: 1.5rem;
   margin: 0 auto;
   background: linear-gradient(#0047ff 10%, #dadadaaf);
   color: white;
-  padding: 1rem;
+
+  width: var(--w);
+  height: var(--h);
 }
 
+/* width: 100%; */
 .inputs-form {
   margin: 1.5rem auto;
   background: transparent;
@@ -75,7 +76,6 @@
   background: transparent;
   color: white;
   border: 1px solid white;
-;
 }
 .father-sing-up-button {
   margin-top: 1rem;
@@ -90,11 +90,12 @@
   justify-content: flex-end;
 }
 
-.sun-button {
+.button-top {
   background: transparent;
   border: 1px solid white;
   border-radius: 0.3rem;
   color: white;
+  margin: 0 5px;
 }
 
 .form-type {
@@ -106,4 +107,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.div-forms {
+  border: 1px solid white;
+  border-radius: 0 1rem 1rem 1rem;
+  padding: 1rem;
+
+  height: var(--h);
+}
+
+.options { 
+  margin:0 0 1rem;
+  background: transparent;
+  border-radius: 2rem;
+  border: 1px solid white;
+  color: white;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 39px;
+  width: 100%;
+}
+
+.topPieceDiv{
+  padding: 1rem;
+  height: var(--h);
+}
+
+.carbon{
+  background-color: #1A1A1A;
+  height: 100%;
+  width: 100%;
+  color: white;
+  padding: 1rem;
 }

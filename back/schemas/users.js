@@ -8,12 +8,13 @@ const UserSchema = new mongoose.Schema(
     },
     lastname: {
       type: String,
-      require: true,
+      require: false,
     },
     email: {
       type: String,
       match: [/.+\@.+\..+/, "por favor ingrese un correo valido"],
       require: true,
+      unique: true
     },
     password: {
       type: String,

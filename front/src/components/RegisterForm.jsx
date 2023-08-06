@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
+import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
-import { useState } from "react";
-import axios from "axios";
+import { FiSun } from "react-icons/fi";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { setUser } from "../state/user";
+import axios from "axios";
 import TopPieceDiv from "../commons/TopPieceDiv";
+const RegisterForm = () => {
+  const navigate = useNavigate()
+  const registerSubmit = (e) => {
+    e.preventDefault();
 
-const LoginForm = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    axios
+      .post(
+        "http://localhost:3001/api/user/register",
+        {
+          name,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => navigate("/login"));
+  };
   const size = {
     height: "29px",
     width: "29px",
@@ -22,60 +34,56 @@ const LoginForm = () => {
     marginTop: "5px",
     marginLeft: "0.5rem",
   };
-  const loginSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(
-        "http://localhost:3001/api/user/login",
-        { email, password },
-        { withCredentials: true }
-      )
-      .then((res) => {
-        localStorage.setItem(
-          "token",
-          JSON.stringify({ token: res.data.token })
-        );
-        dispatch(setUser(res.data.payload));
-        navigate("/");
-      });
-  };
+
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [passwordToShow, setPasswordToShow] = useState("");
+
   return (
     <div className="forms" style={{ "--h": "90vh", "--w": "100%" }}>
       <TopPieceDiv h={"20%"} />
-      <div
-        className="form-type "
-        style={{ margin: "0 1rem" }}
-        onClick={() => {
-          navigate("/register");
-        }}>
+      <div className="form-type" style={{margin:"0 1rem"}} onClick={() => navigate("/login")}>
         <span
           style={{
             position: "relative",
             top: "6px",
             right: "2px",
             fontSize: "24px",
-          }}>
+          }}
+        >
           ° ° °
         </span>
-        Login
+        {"  "}
+        Register
       </div>
       <div className="div-forms" style={{ "--h": "65%", margin: "0 1rem" }}>
         <div className="writer-on-form">
           <p style={{ marginBottom: "0", marginTop: "5px" }}>
-            let user= {"{ email: "}
-            <span className="value-on-form">{email}</span>
+            let user={"{ name:"} <span className="value-on-form">{name}</span>
           </p>
-          <p>
-            password:
-            <span className="value on form">
-              {passwordToShow} {"}"}
-            </span>
+          <p style={{ marginBottom: "0" }}>
+            email: <span className="value-on-form">{email}</span> ,
+          </p>
+          <p style={{ marginBottom: "0" }}>
+            password: <span className="value-on-form">{passwordToShow}</span>
+            {"}"}
           </p>
         </div>
-        <Form>
+        <Form style={{ marginTop: "1rem" }}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <div style={size}>{<AiOutlineUser />}</div>
+            <Form.Control
+              className="inputs-form"
+              type="text"
+              placeholder="UserName"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <div style={size}>{<AiOutlineMail />}</div>
             <Form.Control
@@ -87,6 +95,7 @@ const LoginForm = () => {
               }}
             />
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <div style={size}>{<AiOutlineLock />}</div>
             <Form.Control
@@ -96,29 +105,25 @@ const LoginForm = () => {
               onChange={(e) => {
                 passwordToShow.length > e.target.value.length
                   ? setPasswordToShow(
-                      passwordToShow.slice(0, passwordToShow.length - 1)
-                    )
+                    passwordToShow.slice(0, passwordToShow.length - 1)
+                  )
                   : setPasswordToShow(
-                      passwordToShow ? passwordToShow.concat("*") : "*"
-                    );
+                    passwordToShow ? passwordToShow.concat("*") : "*"
+                  );
                 setPassword(e.target.value);
               }}
               on
             />
           </Form.Group>
         </Form>
-        <span>forgot your password?</span>
-      </div>{" "}
-      <div className="father-sing-up-button">
-        <button
-          className="sing-up-button"
-          style={{ margin: "0 1rem" }}
-          onClick={(e) => loginSubmit(e)}>
-          login
+      </div>
+      <div className="father-sing-up-button"  >
+        <button className="sing-up-button" style={{margin:"0 1rem"}} onClick={(e) => registerSubmit(e)}>
+          sing Up
         </button>
       </div>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
