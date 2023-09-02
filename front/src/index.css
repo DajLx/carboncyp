@@ -1,0 +1,161 @@
+#root {
+  background-color: #0047ff;
+  padding: 10% 0 0 0;
+}
+#mainViewContainer {
+  background-color: #0047ff;
+  margin-top: 3rem;
+  height: 90%;
+}
+.nextView {
+  padding-top: 1rem;
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  color: white;
+
+  justify-content: space-between;
+}
+.title-on-main-view {
+  padding: 0 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.orbitron {
+  font-family: Orbitron;
+  font-weight: bold;
+}
+.title-carbon {
+  font-size: xxx-large;
+}
+
+.imgs {
+  position: absolute;
+  top: var(--t);
+  right: var(--r);
+}
+
+.carbon-copy {
+  height: 66%;
+  width: 80%;
+  border-radius: 2rem;
+
+  margin: 0 auto;
+  background: linear-gradient(#0047ff 10%, #dadadaaf);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.forms {
+  border-radius: 1.5rem;
+  margin: 0 auto;
+  background: linear-gradient(#0047ff 10%, #dadadaaf);
+  color: white;
+
+  width: var(--w);
+  height: var(--h);
+}
+
+/* width: 100%; */
+.inputs-form {
+  margin: 1.5rem auto;
+  background: transparent;
+  border-radius: 17rem;
+  border: 1.5px solid white;
+  padding-left: 3rem;
+  width: 100%;
+}
+
+.writer-on-form {
+  background-color: #0047ff;
+  margin: 0.2rem auto;
+  border-radius: 0 1rem 1rem 1rem;
+  height: 22%;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.value-on-form {
+  color: #ef88bd;
+}
+
+.sing-up-button {
+  width: 100%;
+  border-radius: 10rem;
+  width: 134px;
+  height: 40px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+}
+.father-sing-up-button {
+  margin-top: 0.7rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.father-sun {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-top {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 0.3rem;
+  color: white;
+  margin: 0 5px;
+}
+
+.form-type {
+  border: 1px solid white;
+  border-bottom: none;
+  width: 50%;
+  height: 38px;
+  border-top-right-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-forms {
+  border: 1px solid white;
+  border-radius: 0 1rem 1rem 1rem;
+  padding: 1rem;
+
+  height: var(--h);
+}
+
+.options {
+  margin: 0 0 1rem;
+  background: transparent;
+  border-radius: 2rem;
+  border: 1px solid white;
+  color: white;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 39px;
+  width: 100%;
+}
+
+.topPieceDiv {
+  padding: 1rem;
+  height: var(--h);
+}
+
+.carbon {
+  height: 100%;
+  width: 100%;
+  color: white;
+  padding: 1rem;
+}
