@@ -5,12 +5,16 @@ import Col from "react-bootstrap/Col";
 import { useSelector } from "react-redux";
 import { TbDoorEnter } from "react-icons/tb";
 import { FiSun } from "react-icons/fi";
-import { AiOutlineUser } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import toggleTheme from "../utls/toggleTheme";
+import { setTheme } from "../state/theme";
+import { useDispatch } from "react-redux";
 
 const Favorites = () => {
   const navi = useNavigate();
+  const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme);
   const favorites = useSelector((state) => state.favorites);
   const donwloadFavorite = (name, dataUrl) => {
     Swal.fire({
@@ -46,10 +50,14 @@ const Favorites = () => {
     });
   };
   return (
-    <div
-      style={{ width: "100%", padding: "0 2rem", backgroundColor: "#0047ff" }}>
+    <div className={`favorites-container ${theme ? " dark" : ""}`}>
       <div className="father-sun">
-        <button className="button-top">
+        <button
+          className="button-top"
+          onClick={() => {
+            toggleTheme();
+            dispatch(setTheme(theme ? false : true));
+          }}>
           <FiSun />
         </button>
 
@@ -83,7 +91,6 @@ const Favorites = () => {
                   </Row>
                   <img
                     onClick={() => {
-                      
                       donwloadFavorite(
                         `${favorite.formatAndName.split(".")[0]}.png`,
                         favorite.binaryCode

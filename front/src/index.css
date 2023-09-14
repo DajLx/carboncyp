@@ -1,9 +1,7 @@
 #root {
-  background-color: #0047ff;
-  padding: 10% 0 0 0;
+  padding: 2rem 0 0 0;
 }
 #mainViewContainer {
-  background-color: #0047ff;
   margin-top: 3rem;
   height: 90%;
 }
@@ -32,19 +30,53 @@
   font-size: xxx-large;
 }
 
-.imgs {
+.img-rose {
   position: absolute;
-  top: var(--t);
-  right: var(--r);
+
+  margin-top: 3rem;
+  margin-left: 1rem;
 }
 
+/* top: 12.5rem;
+right: 7.3rem; */
+.img-green {
+  position: absolute;
+  margin-top: -3rem;
+  margin-left: 3rem;
+}
+
+.topPieceDiv {
+  padding: 1rem;
+  height: var(--h);
+}
+.container-carbon-view {
+  height: 100%;
+  width: 100%;
+  padding: 0 2rem;
+}
+.container-carbon-copy {
+  height: 70%;
+}
+
+.carbon-form {
+  position: fixed;
+  bottom: 100rem;
+}
+
+.carbon-form-mobile {
+  position: relative;
+  top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .carbon-copy {
-  height: 66%;
+  height: 100%;
   width: 80%;
   border-radius: 2rem;
-
+  border: 1px solid white;
   margin: 0 auto;
-  background: linear-gradient(#0047ff 10%, #dadadaaf);
+  background: linear-gradient(#00ff0000 10%, #dadadaaf);
   color: white;
   display: flex;
   flex-direction: row;
@@ -55,20 +87,36 @@
 .forms {
   border-radius: 1.5rem;
   margin: 0 auto;
-  background: linear-gradient(#0047ff 10%, #dadadaaf);
+  background: linear-gradient(#00ff0000 10%, #dadadaaf);
   color: white;
 
-  width: var(--w);
+  /* width: var(--w); */
   height: var(--h);
 }
 
+.register-form {
+  height: 98%;
+  width: 100%;
+}
+.p5Logo {
+  position: absolute;
+  bottom: 0px;
+  right: 34%;
+}
 /* width: 100%; */
 .inputs-form {
   margin: 1.5rem auto;
   background: transparent;
   border-radius: 17rem;
   border: 1.5px solid white;
+  color: white;
   padding-left: 3rem;
+  width: 100%;
+}
+
+.hr {
+  margin: 1rem 0;
+  opacity: 100%;
   width: 100%;
 }
 
@@ -85,6 +133,12 @@
   color: #ef88bd;
 }
 
+.favorites-container {
+  width: 100%;
+  padding: 0 2rem;
+  background-color: #0047ff;
+}
+
 .sing-up-button {
   width: 100%;
   border-radius: 10rem;
@@ -95,10 +149,18 @@
   border: 1px solid white;
 }
 .father-sing-up-button {
-  margin-top: 0.7rem;
+  margin-top: 0.5rem;
   width: 100%;
+  height: 33%;
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.father-sing-in-button {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }
 
 .father-sun {
@@ -116,6 +178,7 @@
 }
 
 .form-type {
+  margin: 0;
   border: 1px solid white;
   border-bottom: none;
   width: 50%;
@@ -125,13 +188,27 @@
   justify-content: center;
   align-items: center;
 }
+.container-register {
+  height: 100%;
+  width: 100%;
+  padding: 0 2rem;
+}
 
 .div-forms {
   border: 1px solid white;
-  border-radius: 0 1rem 1rem 1rem;
-  padding: 1rem;
+  border-radius: 0 1rem 1.5rem 1.5rem;
 
+  padding: 1rem;
   height: var(--h);
+
+  /* toque el marguen para solucionar el problema dl editorCode era 0 1rem */
+}
+
+.form-register {
+  height: 65%;
+}
+.form-login {
+  height: 60%;
 }
 
 .options {
@@ -148,14 +225,186 @@
   width: 100%;
 }
 
-.topPieceDiv {
-  padding: 1rem;
-  height: var(--h);
-}
-
 .carbon {
   height: 100%;
   width: 100%;
   color: white;
   padding: 1rem;
+}
+
+.light {
+  background-color: #0047ff;
+}
+
+.dark {
+  background-color: #1e1e1e;
+}
+
+@media (min-width: 768px) {
+  .container-carbon-copy {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .carbon-copy {
+    border: 1px solid white;
+    height: 50%;
+    width: 60%;
+  }
+  .nextView {
+    width: 59%;
+  }
+
+  .img-rose {
+    right: 22%;
+    margin-bottom: 15%;
+  }
+  .img-green {
+    right: 15%;
+    margin-bottom: 20%;
+  }
+  .img-rose-on-form {
+    position: absolute;
+    right: 9%;
+    top: 4rem;
+    height: 4rem;
+  }
+
+  .img-green-on-form {
+    position: absolute;
+    right: 1%;
+    top: 0%;
+    height: 6rem;
+  }
+
+  .p5Logo {
+    right: 45%;
+  }
+  .title-carbon {
+    font-size: 2rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .father-sun {
+    display: none;
+  }
+  .options {
+    display: none;
+  }
+
+  .father-sing-up-button {
+    width: 0;
+    height: 0;
+    display: block;
+    position: absolute;
+    margin-top: 0rem;
+  }
+  .father-sing-in-button {
+    flex-direction: row;
+  }
+
+  .hr {
+    display: none;
+  }
+
+  .writer-on-form {
+    height: 5rem;
+  }
+
+  .value-on-form {
+    font-size: smaller;
+  }
+
+  .carbon-form-mobile {
+    display: none;
+  }
+  .carbon-form {
+    top: 0;
+    height: 40%;
+  }
+  .form-type {
+    margin: 0 1rem;
+
+    background-color: #0047ff;
+  }
+
+  .register-form {
+    height: 85%;
+    width: 80%;
+  }
+  .container-register {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .carbon-copy-form {
+    height: 20%;
+  }
+  .div-forms {
+    margin: 0;
+    background-color: #0047ff;
+  }
+  .form-register {
+    height: 69%;
+    padding: 0.5rem 10rem 2rem;
+  }
+
+  .carbon-form {
+    position: relative;
+    top: 0;
+  }
+
+  .form-login {
+    height: 67%;
+    padding: 0.5rem 10rem 2rem;
+  }
+
+  .topPieceDiv {
+    height: 30%;
+    background: linear-gradient(#00ff0000 10%, #dadadaaf);
+    border-radius: 1rem;
+    height: var(--hp);
+  }
+  .top-piece-div-pc {
+    height: 100%;
+  }
+  .editor-code {
+    margin-top: 2%;
+    height: 48%;
+  }
+
+  .button-top {
+    border-radius: 0.7rem;
+    height: 2.3rem;
+  }
+
+  .pc-options {
+    display: unset;
+  }
+  .button-size {
+    width: 30%;
+  }
+  .carbon-pc-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @media (max-height: 600px) {
+    .mb-3 {
+      margin-bottom: -1rem !important;
+    }
+  }
+  @media (min-height: 1000px) {
+    .img-green {
+      top: 25%;
+    }
+    .img-rose {
+      top: 25%;
+    }
+    .father-options {
+      width: 75%;
+    }
+  }
 }
