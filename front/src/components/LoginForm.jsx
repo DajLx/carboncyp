@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-
+import { useSelector } from "react-redux";
 import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineLock } from "react-icons/ai";
 import { useState } from "react";
@@ -11,6 +11,7 @@ import { setUser } from "../state/user";
 import TopPieceDiv from "../commons/TopPieceDiv";
 
 const LoginForm = () => {
+  const theme = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const size = {
@@ -45,12 +46,14 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [passwordToShow, setPasswordToShow] = useState("");
   return (
-    <div style={{ height: "100%", width: "100%", padding: "0 2rem" }}>
-      <div className="forms" style={{ "--h": "90vh", "--w": "100%" }} id="test">
-        <TopPieceDiv h={"20%"} />
+    <div className="container-register">
+      <div
+        className="register-form forms"
+        style={{ "--h": "90vh", "--w": "100%" }}
+        id="test">
+        <TopPieceDiv h={"25%"} />
         <div
           className="form-type "
-          style={{ margin: "0 1rem" }}
           onClick={() => {
             navigate("/register");
           }}>
@@ -65,8 +68,8 @@ const LoginForm = () => {
           </span>
           Login
         </div>
-        <div className="div-forms" style={{ "--h": "65%", margin: "0 1rem" }}>
-          <div className="writer-on-form">
+        <div className="div-forms form-login">
+          <div className={`writer-on-form ${theme ? " dark" : ""}`}>
             <p style={{ marginBottom: "0", marginTop: "5px" }}>
               let user= {"{ email: "}
               <span className="value-on-form">{email}</span>
@@ -109,16 +112,13 @@ const LoginForm = () => {
                 on
               />
             </Form.Group>
-          </Form>
-          <span>forgot your password?</span>
-        </div>{" "}
-        <div className="father-sing-up-button">
-          <button
-            className="sing-up-button"
-            style={{ margin: "0 1rem" }}
-            onClick={(e) => loginSubmit(e)}>
-            login
-          </button>
+          </Form>{" "}
+          <div className="father-sing-in-button">
+            <button className="sing-up-button" onClick={(e) => loginSubmit(e)}>
+              login
+            </button>
+            <span>forgot your password?</span>
+          </div>{" "}
         </div>
       </div>
     </div>

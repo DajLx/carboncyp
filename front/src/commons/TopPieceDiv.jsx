@@ -1,7 +1,7 @@
-import React from "react";
 import { FiSun } from "react-icons/fi";
 import { AiOutlineUser } from "react-icons/ai";
-import { AiOutlineHeart } from "react-icons/ai";
+import { BsHeart } from "react-icons/bs";
+import { BsFillHeartFill } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import Button from "react-bootstrap/Button";
@@ -16,13 +16,22 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import exportAsImage from "../utls/exportAsImage";
 import { addFavorite } from "../state/favorites";
+import toggleTheme from "../utls/toggleTheme";
+import { setTheme } from "../state/theme";
+import Img1 from "../assets/Group 19.png";
+import img2 from "../assets/Group 20.png";
+import { setHeart } from "../state/heart";
+import { useLocation } from "react-router";
+import TopPieceDivPc from "./TopPieceDivPc";
 
 // import styles from "prismjs/themes"; //Example style, you can use another
 
-
 const TopPieceDiv = ({ h }) => {
+  console.log(useLocation());
   const navi = useNavigate();
   const dispatch = useDispatch();
+  const theme = useSelector((state) => state.theme);
+  const heart = useSelector((state) => state.heart);
   const [show, setShow] = useState(false);
   const [formatAndName, setFormatAndName] = useState("format");
   const handleClose = () => setShow(false);
@@ -77,7 +86,9 @@ const TopPieceDiv = ({ h }) => {
   };
 
   return (
-    <div className="topPieceDiv" style={{ "--h": h }}>
+    <div
+      className="topPieceDiv"
+      style={{ "--h": h ? h : "25%", "--hp": "45%" }}>
       <div className="father-sun">
         <button
           className="button-top"
@@ -90,10 +101,16 @@ const TopPieceDiv = ({ h }) => {
           style={{ display: valueOrNone(), alignItems: "center" }}
           onClick={(e) => {
             createFavorite(e);
+            dispatch(setHeart(true));
           }}>
-          <AiOutlineHeart />
+          {heart ? <BsFillHeartFill style={{ color: "red" }} /> : <BsHeart />}
         </button>
-        <button className="button-top">
+        <button
+          className="button-top"
+          onClick={() => {
+            toggleTheme();
+            dispatch(setTheme(theme ? false : true));
+          }}>
           <FiSun />
         </button>
         <Dropdown as={ButtonGroup} style={{ display: valueOrNone() }}>
@@ -137,20 +154,23 @@ const TopPieceDiv = ({ h }) => {
           </Dropdown.Menu>
         </Dropdown>
       </div>
-      <hr style={{ color: "white", margin: "0.5rem 0", opacity: "100%" }} />
-      <div
+      <hr
+        className="hr"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "flex-start",
-        }}>
+          "--p": useLocation().pathname === "/" ? "relative" : "fixed",
+          "--t": useLocation().pathname === "/" ? "0" : "100rem",
+        }}
+      />
+      <TopPieceDivPc />
+
+      <div className="carbon-form-mobile">
         <h3 className="orbitron">carbon copy </h3>
 
         <h6>give style to your code</h6>
       </div>
       <Dropdown
         as={ButtonGroup}
-        style={{ width: "100%", display: valueOrNone() }}>
+        style={{ width: "100%", display: valueOrNone(), marginTop: "1rem" }}>
         <Button variant="success" className="options">
           {style}
         </Button>

@@ -9,12 +9,13 @@ import "prismjs/components/prism-javascript";
 const CarbonView = () => {
   return (
     <div style={{ height: "100%", width: "100%", padding: "0 2rem" }}>
-      <div className="forms" style={{ "--h": "94vh" }}>
-        <TopPieceDiv h="50%" />
+      <div className="forms carbon-pc-view" style={{ "--h": "94vh" }}>
+        <TopPieceDiv h="54%" />
         <EditorCode />
       </div>
     </div>
   );
 };
+
 
 export default CarbonView;
