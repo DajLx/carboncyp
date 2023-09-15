@@ -47,7 +47,7 @@ const exportAsImage = {
       const dataUrl = await domtoimage.toPng(exportAsImage.nodeToUse(), {
         quality: 1,
       });
-      console.log(typeof dataUrl);
+     
       return dataUrl;
     },
     SVG: async () => {
@@ -62,6 +62,7 @@ const exportAsImage = {
       );
       return dataUrl;
     },
+  
   },
 };
 

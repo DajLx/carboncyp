@@ -8,12 +8,10 @@ import { useNavigate } from "react-router";
 
 const MainView = () => {
   const navigate = useNavigate();
-  console.log(Img1, "this is the image 1");
   return (
     <div id="mainViewContainer">
       <div className="container-carbon-copy">
-        
-      <img src={Img1} alt="" srcset="" className="img-rose" />
+        <img src={Img1} alt="" srcset="" className="img-rose" />
         <img src={img2} alt="" srcset="" className="img-green" />
         <div className="carbon-copy">
           <div>
@@ -71,13 +69,7 @@ const MainView = () => {
             </button>
           </div>
         </div>
-        <img
-          src={logop5}
-          alt=""
-          srcset=""
-          className="p5Logo"
-          
-        />
+        <img src={logop5} alt="" srcset="" className="p5Logo" />
       </div>
     </div>
   );

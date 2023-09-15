@@ -51,7 +51,7 @@ const Favorites = () => {
   };
   return (
     <div className={`favorites-container ${theme ? " dark" : ""}`}>
-      <div className="father-sun">
+      <div className="father-sun-favorites">
         <button
           className="button-top"
           onClick={() => {
@@ -80,7 +80,7 @@ const Favorites = () => {
           <Container>
             <Row>
               {favorites.map((favorite) => (
-                <Col xs={6} style={{ marginBottom: "1rem" }}>
+                <Col xs={6} style={{ marginBottom: "1rem", padding: "1rem" }}>
                   <Row>
                     <Col
                       xs={12}
@@ -89,15 +89,22 @@ const Favorites = () => {
                       {favorite.formatAndName.split(".")[0]}
                     </Col>
                   </Row>
-                  <img
-                    onClick={() => {
-                      donwloadFavorite(
-                        `${favorite.formatAndName.split(".")[0]}.png`,
-                        favorite.binaryCode
-                      );
-                    }}
-                    src={favorite.binaryCode}
-                    style={{ width: "100%" }}></img>
+                  <div
+                    style={{
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                    }}>
+                    <img
+                      onClick={() => {
+                        donwloadFavorite(
+                          `${favorite.formatAndName.split(".")[0]}.png`,
+                          favorite.binaryCode
+                        );
+                      }}
+                      src={favorite.binaryCode}
+                      style={{ width: "100%" }}></img>
+                  </div>
                 </Col>
               ))}
             </Row>

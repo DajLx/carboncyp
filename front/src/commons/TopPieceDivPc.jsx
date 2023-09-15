@@ -17,6 +17,7 @@ import { HexColorPicker } from "react-colorful";
 import exportAsImage from "../utls/exportAsImage";
 import { setColor } from "../state/color";
 import { setHeart } from "../state/heart";
+import { addFavorite } from "../state/favorites";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 const TopPieceDivPc = ({ h }) => {
@@ -44,6 +45,8 @@ const TopPieceDivPc = ({ h }) => {
   ];
   const createImage = (format, name) => exportAsImage.toDownload[format](name);
   const verifier = (format) => formatAndName.split(".")[1] != undefined;
+  const valueOrNone = () => (user.name ? "flex" : "none");
+  const logout = () => localStorage.clear();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const dowloadFile = () => {
@@ -66,8 +69,7 @@ const TopPieceDivPc = ({ h }) => {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data, "im the favorite"),
-          dispatch(addFavorite(res.data));
+        dispatch(addFavorite(res.data));
       });
   };
   return (
@@ -98,14 +100,24 @@ const TopPieceDivPc = ({ h }) => {
             </div>
           </div>
         </div>
-        <div style={{ width: "100%", display: "flex" }}>
+        <div
+          style={{
+            width: "100%",
+            height: "29%",
+            display: valueOrNone(),
+            alignItems: "center",
+            justifyContent: "space-between",
+            border: "1px solid white",
+            borderRadius: "0 1rem 1rem",
+            backgroundColor: theme ? "#1e1e1e" : "#0047ff",
+          }}>
           <div
             className="father-options"
             style={{
               display: "flex",
               justifyContent: "space-evenly",
             }}>
-            <Dropdown as={ButtonGroup} className="button-size">
+            <Dropdown as={ButtonGroup} className="button-size" style={{}}>
               <Button
                 variant="success"
                 className="options pc-options"
@@ -135,7 +147,7 @@ const TopPieceDivPc = ({ h }) => {
                 ))}
               </Dropdown.Menu>
             </Dropdown>
-            <Dropdown as={ButtonGroup} className="button-size">
+            <Dropdown as={ButtonGroup} className="button-size" style={{}}>
               <input
                 variant="success"
                 className="options pc-options"
@@ -183,7 +195,7 @@ const TopPieceDivPc = ({ h }) => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <Dropdown as={ButtonGroup} className="button-size">
+            <Dropdown as={ButtonGroup} className="button-size" style={{}}>
               <Button
                 variant="success"
                 className="options pc-options"
@@ -270,9 +282,9 @@ const TopPieceDivPc = ({ h }) => {
           </div>
           <div
             style={{
-              width: "20%",
               display: "flex",
-            }}>
+            }}
+            className="buttons-navbar">
             <button
               className="button-top"
               style={{ alignItems: "center" }}
@@ -294,6 +306,7 @@ const TopPieceDivPc = ({ h }) => {
             </button>
             <button
               className="button-top"
+              style={{}}
               onClick={() => {
                 toggleTheme();
                 dispatch(setTheme(theme ? false : true));
@@ -301,19 +314,18 @@ const TopPieceDivPc = ({ h }) => {
               <FiSun />
             </button>
             <Dropdown as={ButtonGroup} style={{}}>
-              <Button
-                variant="success"
-                className="button-top"
-                style={{ margin: "0 0" }}>
+              <Button variant="success" className="button-top">
                 <AiOutlineUser />{" "}
                 <Dropdown.Toggle
                   split
                   variant="success"
                   id="dropdown-split-basic"
                   style={{
-                    marginLeft: "0 0",
                     backgroundColor: "transparent",
                     border: "none",
+                    position: "absolute",
+                    marginLeft: "-1rem",
+                    opacity: "0%",
                   }}
                 />
               </Button>

@@ -27,7 +27,7 @@ import TopPieceDivPc from "./TopPieceDivPc";
 // import styles from "prismjs/themes"; //Example style, you can use another
 
 const TopPieceDiv = ({ h }) => {
-  console.log(useLocation());
+ 
   const navi = useNavigate();
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
@@ -73,7 +73,7 @@ const TopPieceDiv = ({ h }) => {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data, "im the favorite"),
+     
           dispatch(addFavorite(res.data));
       });
   };
@@ -87,8 +87,8 @@ const TopPieceDiv = ({ h }) => {
 
   return (
     <div
-      className="topPieceDiv"
-      style={{ "--h": h ? h : "25%", "--hp": "45%" }}>
+      className="topPieceDiv topPieceDiv-for-carbon-view"
+      style={{ "--h": h ? h : "25%", "--hp": "30%" }}>
       <div className="father-sun">
         <button
           className="button-top"
@@ -117,7 +117,12 @@ const TopPieceDiv = ({ h }) => {
           <Button
             variant="success"
             className="button-top"
-            style={{ margin: "0 0" }}>
+            style={{
+              height: "34px",
+              width: "30px",
+              padding: "0",
+              borderRadius: "0.3rem",
+            }}>
             <AiOutlineUser />{" "}
             <Dropdown.Toggle
               split
@@ -127,6 +132,9 @@ const TopPieceDiv = ({ h }) => {
                 marginLeft: "0 0",
                 backgroundColor: "transparent",
                 border: "none",
+                position: "absolute",
+                marginLeft: "-1rem",
+                opacity: "0%",
               }}
             />
           </Button>

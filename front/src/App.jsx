@@ -21,7 +21,6 @@ function App() {
 
   {
     useEffect(() => {
-      console.log(user, "this is the user");
       if (LS?.token) {
         if (!user.id) {
           axios
@@ -34,7 +33,6 @@ function App() {
         }
       }
       if (user.id) {
-        console.log("entre en el condicional");
         axios
           .get(`http://localhost:3001/api/user/getAllFavorites/${user.id}`, {
             withCredentials: true,

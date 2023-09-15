@@ -51,112 +51,119 @@ const RegisterForm = () => {
   return (
     <div className="container-register">
       <div className="register-form forms">
-        <TopPieceDiv h={"25%"}  />
-    
-        <div className="form-type" onClick={() => navigate("/login")}>
-          <span
-            style={{
-              position: "relative",
-              top: "6px",
-              right: "2px",
-              fontSize: "24px",
-            }}>
-            ° ° °
-          </span>
-          {"  "}
-          Register
-        </div>
-        <div className="div-forms form-register">
-          <div className={`writer-on-form ${theme ? " dark" : ""}`}>
-            <p style={{ marginBottom: "0", marginTop: "5px" }}>
-              let user={"{ name:"} <span className="value-on-form">{name}</span>
-            </p>
-            <p style={{ marginBottom: "0" }}>
-              email: <span className="value-on-form">{email}</span> ,
-            </p>
-            <p style={{ marginBottom: "0" }}>
-              password: <span className="value-on-form">{passwordToShow}</span>
-              {"}"}
-            </p>
+        <TopPieceDiv h={"25%"} />
+        <div>
+          <div className="form-type" onClick={() => navigate("/login")}>
+            <span
+              style={{
+                position: "relative",
+                top: "6px",
+                right: "2px",
+                fontSize: "24px",
+              }}>
+              ° ° °
+            </span>
+            {"  "}
+            Register
           </div>
-          <Form style={{ marginTop: "-0.5rem", height: "70%" }}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <div style={size}>{<AiOutlineUser />}</div>
-              <Form.Control
-                className="inputs-form"
-                type="text"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-            </Form.Group>
+          <div className="div-forms form-register">
+            <div className={`writer-on-form ${theme ? " dark" : ""}`}>
+              <p style={{ marginBottom: "0", marginTop: "5px" }}>
+                let user={"{ name:"}{" "}
+                <span className="value-on-form">{name}</span>
+              </p>
+              <p style={{ marginBottom: "0" }}>
+                email: <span className="value-on-form">{email}</span> ,
+              </p>
+              <p style={{ marginBottom: "0" }}>
+                password:{" "}
+                <span className="value-on-form">{passwordToShow}</span>
+                {"}"}
+              </p>
+            </div>
+            <Form style={{ marginTop: "-0.5rem", height: "70%" }}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <div style={size}>{<AiOutlineUser />}</div>
+                <Form.Control
+                  className="inputs-form"
+                  type="text"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <div style={size}>{<AiOutlineMail />}</div>
-              <Form.Control
-                className="inputs-form"
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <div style={size}>{<AiOutlineMail />}</div>
+                <Form.Control
+                  className="inputs-form"
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+              </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <div style={size}>{<AiOutlineLock />}</div>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <div style={size}>{<AiOutlineLock />}</div>
 
-              <Form.Control
-                className="inputs-form"
-                type={type}
-                value={password}
-                onChange={(e) => {
-                  passwordToShow.length > e.target.value.length
-                    ? setPasswordToShow(
-                        passwordToShow.slice(0, passwordToShow.length - 1)
-                      )
-                    : setPasswordToShow(
-                        passwordToShow ? passwordToShow.concat("*") : "*"
-                      );
-                  setPassword(e.target.value);
-                }}
-                on
-              />
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}>
+                <Form.Control
+                  className="inputs-form"
+                  type={type}
+                  value={password}
+                  onClick={(e) => {
+                    setPassword("");
+                    
+                  }}
+                  onChange={(e) => {
+                    passwordToShow.length > e.target.value.length
+                      ? setPasswordToShow(
+                          passwordToShow.slice(0, passwordToShow.length - 1)
+                        )
+                      : setPasswordToShow(
+                          passwordToShow ? passwordToShow.concat("*") : "*"
+                        );
+                    setPassword(e.target.value);
+                  }}
+                  on
+                />
                 <div
                   style={{
-                    height: "29px",
-                    width: "29px",
-                    border: "1px solid white",
-                    borderRadius: "10rem",
-                    position: "absolute",
-                    marginTop: "-57px",
-                    marginRight: "7px",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "flex-end",
                   }}>
-                  <IoEyeSharp
-                    onClick={() => {
-                      setType(type === "text" ? "password" : "text");
-                    }}
-                  />
+                  <div
+                    style={{
+                      height: "29px",
+                      width: "29px",
+                      border: "1px solid white",
+                      borderRadius: "10rem",
+                      position: "absolute",
+                      marginTop: "-57px",
+                      marginRight: "7px",
+                    }}>
+                    <IoEyeSharp
+                      onClick={() => {
+                        setType(type === "text" ? "password" : "text");
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            </Form.Group>
+              </Form.Group>
 
-            <div className="father-sing-up-button">
-              {" "}
-              <button
-                className="sing-up-button"
-                onClick={(e) => registerSubmit(e)}>
-                sing Up
-              </button>
-            </div>
-          </Form>
+              <div className="father-sing-up-button">
+                {" "}
+                <button
+                  className="sing-up-button"
+                  onClick={(e) => registerSubmit(e)}>
+                  sing Up
+                </button>
+              </div>
+            </Form>
+          </div>
         </div>
       </div>
     </div>

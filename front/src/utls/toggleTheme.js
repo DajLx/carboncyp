@@ -8,7 +8,6 @@ const tool = (nodes) => {
 };
 const toggleTheme = () => {
   const nodes = getNodes();
-  console.log(nodes);
   tool(nodes);
 };
 
