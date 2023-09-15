@@ -19,7 +19,6 @@ const Profile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  console.log(newPassword);
   const verifierData = (data) => {
     const dataToUpdate = {};
     for (const verifir in data) {
@@ -51,7 +50,7 @@ const Profile = () => {
       )
       .then((res) => {
         if (res.data.newPassword) return alert("password changed");
-        console.log(res);
+
         localStorage.clear();
         localStorage.setItem(
           "token",
@@ -62,7 +61,6 @@ const Profile = () => {
   };
   const toggleShow = () => (!show ? setShow("none") : setShow(""));
 
-  console.log(user);
   return user.name ? (
     <Card
       style={{
@@ -95,7 +93,6 @@ const Profile = () => {
             style={{ width: "100%" }}
             onChange={(e) => {
               setName(e.target.value);
-              console.log(e.target.value);
             }}
             value={!name ? user.name : name}></input>
         </label>

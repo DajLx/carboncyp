@@ -9,9 +9,11 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { setUser } from "../state/user";
 import TopPieceDiv from "../commons/TopPieceDiv";
+import { IoEyeSharp } from "react-icons/io5";
 
 const LoginForm = () => {
   const theme = useSelector((state) => state.theme);
+  const [type, setType] = useState("password");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const size = {
@@ -33,7 +35,6 @@ const LoginForm = () => {
         { withCredentials: true }
       )
       .then((res) => {
-        console.log(res.data);
         localStorage.setItem(
           "token",
           JSON.stringify({ token: res.data.token })
@@ -42,8 +43,8 @@ const LoginForm = () => {
         navigate("/");
       });
   };
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("email");
+  const [password, setPassword] = useState("password");
   const [passwordToShow, setPasswordToShow] = useState("");
   return (
     <div className="container-register">
@@ -52,6 +53,7 @@ const LoginForm = () => {
         style={{ "--h": "90vh", "--w": "100%" }}
         id="test">
         <TopPieceDiv h={"25%"} />
+
         <div
           className="form-type "
           onClick={() => {
@@ -87,7 +89,7 @@ const LoginForm = () => {
               <Form.Control
                 className="inputs-form"
                 type="email"
-                placeholder="Enter email"
+                value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
@@ -97,8 +99,9 @@ const LoginForm = () => {
               <div style={size}>{<AiOutlineLock />}</div>
               <Form.Control
                 className="inputs-form"
-                type="password"
-                placeholder="Password"
+                type={type}
+                value={password}
+                onClick={() => setPassword("")}
                 onChange={(e) => {
                   passwordToShow.length > e.target.value.length
                     ? setPasswordToShow(
@@ -111,10 +114,35 @@ const LoginForm = () => {
                 }}
                 on
               />
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                }}>
+                <div
+                  style={{
+                    height: "29px",
+                    width: "29px",
+                    border: "1px solid white",
+                    borderRadius: "10rem",
+                    position: "absolute",
+                    marginTop: "-57px",
+                    marginRight: "7px",
+                  }}>
+                  <IoEyeSharp
+                    onClick={() => {
+                      setType(type === "text" ? "password" : "text");
+                    }}
+                  />
+                </div>
+              </div>
             </Form.Group>
           </Form>{" "}
           <div className="father-sing-in-button">
-            <button className="sing-up-button" onClick={(e) => loginSubmit(e)}>
+            <button
+              className="sing-up-button login-button"
+              onClick={(e) => loginSubmit(e)}>
               login
             </button>
             <span>forgot your password?</span>
