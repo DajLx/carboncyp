@@ -60,7 +60,7 @@ const TopPieceDivPc = ({ h }) => {
     const binaryCode = await exportAsImage.toCreateImage.PNG();
     axios
       .post(
-        "http://localhost:3001/api/user/addFavorite",
+        "https://carbon-service.onrender.com/api/user/addFavorite",
         {
           binaryCode,
           user_id: user.id,
