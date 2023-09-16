@@ -42,7 +42,7 @@ const Profile = () => {
 
     axios
       .put(
-        `http://localhost:3001/api/user/editMe/${user.id}`,
+        `https://carbon-service.onrender.com/api/user/editMe/${user.id}`,
         verifierData(data),
         {
           withCredentials: true,

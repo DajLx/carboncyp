@@ -25,7 +25,7 @@ function App() {
         if (!user.id) {
           axios
             .post(
-              "http://localhost:3001/api/user/me",
+              "https://carbon-service.onrender.com/api/user/me",
               { token: LS.token },
               { withCredentials: true }
             )
@@ -34,7 +34,7 @@ function App() {
       }
       if (user.id) {
         axios
-          .get(`http://localhost:3001/api/user/getAllFavorites/${user.id}`, {
+          .get(`https://carbon-service.onrender.com/api/user/getAllFavorites/${user.id}`, {
             withCredentials: true,
           })
           .then((res) => dispatch(setFavorite(res.data)));

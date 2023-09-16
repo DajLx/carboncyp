@@ -27,7 +27,6 @@ import TopPieceDivPc from "./TopPieceDivPc";
 // import styles from "prismjs/themes"; //Example style, you can use another
 
 const TopPieceDiv = ({ h }) => {
- 
   const navi = useNavigate();
   const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
@@ -64,7 +63,7 @@ const TopPieceDiv = ({ h }) => {
     const binaryCode = await exportAsImage.toCreateImage.PNG();
     axios
       .post(
-        "http://localhost:3001/api/user/addFavorite",
+        "https://carbon-service.onrender.com/api/user/addFavorite",
         {
           binaryCode,
           user_id: user.id,
@@ -73,8 +72,7 @@ const TopPieceDiv = ({ h }) => {
         { withCredentials: true }
       )
       .then((res) => {
-     
-          dispatch(addFavorite(res.data));
+        dispatch(addFavorite(res.data));
       });
   };
 

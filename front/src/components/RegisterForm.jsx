@@ -20,7 +20,7 @@ const RegisterForm = () => {
     } else {
       axios
         .post(
-          "http://localhost:3001/api/user/register",
+          "https://carbon-service.onrender.com/api/user/register",
           {
             name,
             email,
