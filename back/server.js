@@ -12,7 +12,7 @@ app.use(fileUpload());
 
 app.use(
   cors({
-    origin: "https://carboncyp-amy4-hzz55c0o9-dajlx.vercel.app/",
+    origin: "https://carboncyp-amy4.vercel.app/",
     credentials: true,
   })
 );
