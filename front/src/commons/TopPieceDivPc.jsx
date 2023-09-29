@@ -19,6 +19,7 @@ import { setColor } from "../state/color";
 import { setHeart } from "../state/heart";
 import { addFavorite } from "../state/favorites";
 import Modal from "react-bootstrap/Modal";
+import { useLocation } from "react-router";
 import axios from "axios";
 const TopPieceDivPc = ({ h }) => {
   const theme = useSelector((state) => state.theme);
@@ -28,6 +29,7 @@ const TopPieceDivPc = ({ h }) => {
   const color = useSelector((state) => state.color);
   const user = useSelector((state) => state.user);
   const [localColor, setLocalColor] = useState(color.color1);
+  console.log(useLocation());
 
   const [localColor2, setLocalColor2] = useState(color.color2);
   const [show, setShow] = useState(false);
@@ -73,16 +75,26 @@ const TopPieceDivPc = ({ h }) => {
       });
   };
   return (
-    <div className={"carbon-form top-piece-div-pc"}>
+    <div
+      className={"carbon-form top-piece-div-pc"}
+      style={{
+        background:
+          useLocation().pathname === "/"
+            ? "linearGradient(119deg, #00ff0000 10%, #dadadaaf)"
+            : "none",
+      }}>
       <div
         style={{
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          justifyContent:
+            useLocation().pathname === "/" ? "space-between" : "flex-start",
         }}>
-        <img src={Img1} alt="" srcset="" className="img-rose-on-form" />
-        <img src={img2} alt="" srcset="" className="img-green-on-form" />
+        <div>
+          <img src={Img1} alt="" srcset="" className="img-rose-on-form" />
+          <img src={img2} alt="" srcset="" className="img-green-on-form" />
+        </div>
 
         <div className="carbon-copy-form">
           <div>
@@ -108,7 +120,7 @@ const TopPieceDivPc = ({ h }) => {
             alignItems: "center",
             justifyContent: "space-between",
             border: "1px solid white",
-            borderRadius: "0 1rem 1rem",
+            borderRadius: "0 1rem 0rem",
             backgroundColor: theme ? "#1e1e1e" : "#0047ff",
           }}>
           <div

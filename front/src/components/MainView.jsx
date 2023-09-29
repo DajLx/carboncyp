@@ -11,9 +11,18 @@ const MainView = () => {
   return (
     <div id="mainViewContainer">
       <div className="container-carbon-copy">
-        <img src={Img1} alt="" srcset="" className="img-rose" />
-        <img src={img2} alt="" srcset="" className="img-green" />
         <div className="carbon-copy">
+          <div
+            style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
+            <img src={Img1} alt="" srcset="" className="img-rose img-rose-pc" />
+            <img
+              src={img2}
+              alt=""
+              srcset=""
+              className="img-green img-green-pc"
+            />
+          </div>
+
           <div>
             <div className="title-on-main-view">
               <h2 className="title-carbon orbitron">carbon</h2>

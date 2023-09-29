@@ -1,5 +1,4 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";

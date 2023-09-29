@@ -20,9 +20,9 @@ const EditorCode = () => {
   return (
     <div
       id="codeToImage"
-      className="div-forms editor-code"
+      className="div-forms bg editor-code"
       style={{
-        "--h": "46%",
+        "--h": "48%",
         backgroundColor: color.color1,
         border: "1px solid white",
         padding: "1rem",
