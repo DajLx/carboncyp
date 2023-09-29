@@ -53,100 +53,101 @@ const LoginForm = () => {
         style={{ "--h": "90vh", "--w": "100%" }}
         id="test">
         <TopPieceDiv h={"25%"} />
-
-        <div
-          className="form-type "
-          onClick={() => {
-            navigate("/register");
-          }}>
-          <span
-            style={{
-              position: "relative",
-              top: "6px",
-              right: "2px",
-              fontSize: "24px",
+        <div className="container-register-form">
+          <div
+            className="form-type "
+            onClick={() => {
+              navigate("/register");
             }}>
-            ° ° °
-          </span>
-          Login
-        </div>
-        <div className="div-forms form-login">
-          <div className={`writer-on-form ${theme ? " dark" : ""}`}>
-            <p style={{ marginBottom: "0", marginTop: "5px" }}>
-              let user= {"{ email: "}
-              <span className="value-on-form">{email}</span>
-            </p>
-            <p>
-              password:
-              <span className="value on form">
-                {passwordToShow} {"}"}
-              </span>
-            </p>
+            <span
+              style={{
+                position: "relative",
+                top: "6px",
+                right: "2px",
+                fontSize: "24px",
+              }}>
+              ° ° °
+            </span>
+            Login
           </div>
-          <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <div style={size}>{<AiOutlineMail />}</div>
-              <Form.Control
-                className="inputs-form"
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <div style={size}>{<AiOutlineLock />}</div>
-              <Form.Control
-                className="inputs-form"
-                type={type}
-                value={password}
-                onClick={() => setPassword("")}
-                onChange={(e) => {
-                  passwordToShow.length > e.target.value.length
-                    ? setPasswordToShow(
-                        passwordToShow.slice(0, passwordToShow.length - 1)
-                      )
-                    : setPasswordToShow(
-                        passwordToShow ? passwordToShow.concat("*") : "*"
-                      );
-                  setPassword(e.target.value);
-                }}
-                on
-              />
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}>
+          <div className="div-forms form-login">
+            <div className={`writer-on-form ${theme ? " dark" : ""}`}>
+              <p style={{ marginBottom: "0", marginTop: "5px" }}>
+                let user= {"{ email: "}
+                <span className="value-on-form">{email}</span>
+              </p>
+              <p>
+                password:
+                <span className="value on form">
+                  {passwordToShow} {"}"}
+                </span>
+              </p>
+            </div>
+            <Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <div style={size}>{<AiOutlineMail />}</div>
+                <Form.Control
+                  className="inputs-form"
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <div style={size}>{<AiOutlineLock />}</div>
+                <Form.Control
+                  className="inputs-form"
+                  type={type}
+                  value={password}
+                  onClick={() => setPassword("")}
+                  onChange={(e) => {
+                    passwordToShow.length > e.target.value.length
+                      ? setPasswordToShow(
+                          passwordToShow.slice(0, passwordToShow.length - 1)
+                        )
+                      : setPasswordToShow(
+                          passwordToShow ? passwordToShow.concat("*") : "*"
+                        );
+                    setPassword(e.target.value);
+                  }}
+                  on
+                />
                 <div
                   style={{
-                    height: "29px",
-                    width: "29px",
-                    border: "1px solid white",
-                    borderRadius: "10rem",
-                    position: "absolute",
-                    marginTop: "-57px",
-                    marginRight: "7px",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "flex-end",
                   }}>
-                  <IoEyeSharp
-                    onClick={() => {
-                      setType(type === "text" ? "password" : "text");
-                    }}
-                  />
+                  <div
+                    style={{
+                      height: "29px",
+                      width: "29px",
+                      border: "1px solid white",
+                      borderRadius: "10rem",
+                      position: "absolute",
+                      marginTop: "-57px",
+                      marginRight: "7px",
+                    }}>
+                    <IoEyeSharp
+                      onClick={() => {
+                        setType(type === "text" ? "password" : "text");
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            </Form.Group>
-          </Form>{" "}
-          <div className="father-sing-in-button">
-            <button
-              className="sing-up-button login-button"
-              onClick={(e) => loginSubmit(e)}>
-              login
-            </button>
-            <span>forgot your password?</span>
-          </div>{" "}
+              </Form.Group>
+            </Form>{" "}
+            <div className="father-sing-in-button">
+              <button
+                className="sing-up-button login-button"
+                onClick={(e) => loginSubmit(e)}>
+                login
+              </button>
+              <span>forgot your password?</span>
+            </div>{" "}
+          </div>
         </div>
       </div>
     </div>

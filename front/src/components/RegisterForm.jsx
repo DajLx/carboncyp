@@ -52,7 +52,10 @@ const RegisterForm = () => {
     <div className="container-register">
       <div className="register-form forms">
         <TopPieceDiv h={"25%"} />
-        <div>
+        <div className="container-register-form"
+          style={{
+            
+          }}>
           <div className="form-type" onClick={() => navigate("/login")}>
             <span
               style={{
@@ -115,7 +118,6 @@ const RegisterForm = () => {
                   value={password}
                   onClick={(e) => {
                     setPassword("");
-                    
                   }}
                   onChange={(e) => {
                     passwordToShow.length > e.target.value.length
@@ -152,16 +154,15 @@ const RegisterForm = () => {
                     />
                   </div>
                 </div>
-              </Form.Group>
-
-              <div className="father-sing-up-button">
-                {" "}
-                <button
-                  className="sing-up-button"
-                  onClick={(e) => registerSubmit(e)}>
-                  sing Up
-                </button>
-              </div>
+                
+              </Form.Group><div className="father-sing-up-button">
+                  {" "}
+                  <button
+                    className="sing-up-button"
+                    onClick={(e) => registerSubmit(e)}>
+                    sing Up
+                  </button>
+                </div>
             </Form>
           </div>
         </div>
